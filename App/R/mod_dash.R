@@ -147,13 +147,13 @@ mod_dash_server <- function(input, output, session){
   output$prob_mod <- shiny::renderUI({
 
     if(input$modelo == 'Localidade'){
-      md <- keras::load_model_hdf5('data/modelo_local.h5')
+      md <- keras::load_model_hdf5(system.file('extdata/modelo_local.h5',package = 'echowave'))
       prob <- predict(object = md,x = sound_features())
       cls <- ifelse(prob >= 0.5,1,0)
       resp <- ifelse(mean(cls) >= 0.5,'Assis','Sta Barb')
     }
     else{
-      md <- keras::load_model_hdf5('data/modelo_dist_sede.h5')
+      md <- keras::load_model_hdf5(system.file('extdata/modelo_dist_sede.h5',package = 'echowave'))
       prob <- predict(object = md,x = sound_features())
       cls <- ifelse(prob >= 0.5,1,0)
       resp <- ifelse(mean(cls) >= 0.5,'Longe da Sede','Perto da Sede')

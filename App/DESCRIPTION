@@ -7,11 +7,30 @@ Authors@R:
            role = c("aut", "cre"),
            email = "your@email.com")
 Description: What the package does (one paragraph).
-License: What license is it under?
+License: GPL-3
 Imports: 
     config (>= 0.3.1),
     golem (>= 0.3.2),
-    shiny (>= 1.7.1)
+    shiny (>= 1.7.1),
+    dplyr,
+    magrittr,
+    purrr,
+    highcharter,
+    ggplot2,
+    sf,
+    fs,
+    stringr,
+    keras,
+    imager,
+    scales,
+    tibble,
+    shinydashboard,
+    shinycssloaders,
+    abind,
+    seewave,
+    shinyWidgets,
+    tidyr,
+    tuneR
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.1.1

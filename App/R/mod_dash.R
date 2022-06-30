@@ -61,6 +61,12 @@ mod_dash_ui <- function(id){
 mod_dash_server <- function(input, output, session){
   ns <- session$ns
 
+  shiny::observe({
+    reticulate::virtualenv_create(envname = 'r-tensorflow', python = 'python3')
+    reticulate::virtualenv_install('r-tensorflow', c('numpy', 'tensorflow', 'keras'), ignore_installed = FALSE)
+    reticulate::use_virtualenv(virtualenv = 'r-tensorflow', required = TRUE)
+  })
+
 
   sound <- shiny::eventReactive(input$file_audio,{
     sd <- input$file_audio$datapath %>%

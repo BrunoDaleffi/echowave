@@ -61,12 +61,6 @@ mod_dash_ui <- function(id){
 mod_dash_server <- function(input, output, session){
   ns <- session$ns
 
-  shiny::observe({
-    reticulate::virtualenv_create(envname = 'r-tensorflow', python = 'python3')
-    reticulate::virtualenv_install('r-tensorflow', c('numpy', 'tensorflow', 'keras'), ignore_installed = FALSE)
-    reticulate::use_virtualenv(virtualenv = 'r-tensorflow', required = TRUE)
-  })
-
 
   sound <- shiny::eventReactive(input$file_audio,{
     sd <- input$file_audio$datapath %>%
@@ -118,6 +112,8 @@ mod_dash_server <- function(input, output, session){
           output = 'Wave'
         ) %>%
             sound_spec() +
+            ggplot2::scale_x_continuous(limits = c(0,180)) +
+            ggplot2::scale_y_continuous(limits = c(0,16)) +
             ggplot2::theme(legend.position = 'none',
                            axis.text.x = ggplot2::element_blank(),
                            axis.text.y = ggplot2::element_blank(),
@@ -148,6 +144,18 @@ mod_dash_server <- function(input, output, session){
     sound_to_use()  %>%
       sound_spec()
 
+  })
+
+  observe({
+    model <- list(
+      dist_sede = system.file('extdata/modelo_dist_sede.h5',package = 'echowave'),
+      local = system.file('extdata/modelo_local.h5',package = 'echowave')
+    )
+
+    md <- keras::load_model_hdf5(model$local)
+    prob <- predict(object = md,x = sound_features())
+
+    print(prob)
   })
 
 

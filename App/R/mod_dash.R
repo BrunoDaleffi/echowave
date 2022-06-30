@@ -144,6 +144,8 @@ mod_dash_server <- function(input, output, session){
 
   })
 
+
+
   output$prob_mod <- shiny::renderUI({
 
     if(input$modelo == 'Localidade'){

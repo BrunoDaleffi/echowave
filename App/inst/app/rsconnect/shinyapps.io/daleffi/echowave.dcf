@@ -1,0 +1,13 @@
+name: echowave
+title: echowave
+username:
+account: daleffi
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6575763
+bundleId: 6058591
+url: https://daleffi.shinyapps.io/echowave/
+when: 1656611599.4899
+lastSyncTime: 1656611599.48992
+asMultiple: FALSE
+asStatic: FALSE

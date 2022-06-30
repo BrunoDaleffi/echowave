@@ -11,7 +11,7 @@ app_ui <- function(request) {
     # List the first level UI elements here
     shinydashboard::dashboardPage(
       skin = 'purple',
-      shinydashboard::dashboardHeader(title = 'Calculadora'),
+      shinydashboard::dashboardHeader(title = 'EchoWave'),
       shinydashboard::dashboardSidebar(),
       shinydashboard::dashboardBody(
         tabName = 'dash',

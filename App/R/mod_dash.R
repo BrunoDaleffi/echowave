@@ -23,7 +23,7 @@ mod_dash_ui <- function(id){
                               label = 'Resposta',
                               choices = c('Localidade','Distância da sede'),
                               selected = 'Localidade',justified = TRUE,status = 'primary'
-                              )
+                            )
                           )
                         )
     ),
@@ -171,6 +171,5 @@ mod_dash_server <- function(input, output, session){
     )
 
   })
-
 
 }

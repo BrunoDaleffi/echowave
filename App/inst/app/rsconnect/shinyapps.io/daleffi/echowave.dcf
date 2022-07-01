@@ -5,9 +5,9 @@ account: daleffi
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6575763
-bundleId: 6059021
+bundleId: 6059257
 url: https://daleffi.shinyapps.io/echowave/
-when: 1656620393.96401
-lastSyncTime: 1656620393.96402
+when: 1656626253.38677
+lastSyncTime: 1656626253.38678
 asMultiple: FALSE
 asStatic: FALSE

@@ -146,20 +146,6 @@ mod_dash_server <- function(input, output, session){
 
   })
 
-  observe({
-    model <- list(
-      dist_sede = system.file('extdata/modelo_dist_sede.h5',package = 'echowave'),
-      local = system.file('extdata/modelo_local.h5',package = 'echowave')
-    )
-
-    md <- keras::load_model_hdf5(model$local)
-    prob <- predict(object = md,x = sound_features())
-
-    print(prob)
-  })
-
-
-
   output$prob_mod <- shiny::renderUI({
 
     if(input$modelo == 'Localidade'){

@@ -1,0 +1,13 @@
+name: echowave
+title: echowave
+username:
+account: abjur
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 6580396
+bundleId: 6063490
+url: https://abjur.shinyapps.io/echowave/
+when: 1656758596.00351
+lastSyncTime: 1656758596.00353
+asMultiple: FALSE
+asStatic: FALSE

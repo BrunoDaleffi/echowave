@@ -127,15 +127,13 @@ compara_modelo <- function(dados_teste,nomes = '',modelos, tipo = 'class'){
     purrr::map2_dfr(modelos,
                     nomes,
                     ~predict(.x, dados_teste, type = "class") %>%
-                      dplyr::bind_cols(predict(.x, dados_teste, type = "prob")) %>%
-                      purrr::set_names(c('class','p1','p2')) %>%
+                      purrr::set_names('class') %>%
                       dplyr::mutate(modelo = .y %>% as.character() %>% .[1] %>% stringr::str_extract('^[a-z]*'),
                                     resposta = dados_teste$resp) %>%
                       dplyr::group_by(modelo) %>%
                       dplyr::summarise(acc = scales::percent(yardstick::accuracy_vec(resposta, class),accuracy = 1),
                                        prc = scales::percent(yardstick::precision_vec(resposta, class),accuracy = 1),
-                                       rec = scales::percent(yardstick::recall_vec(resposta, class),accuracy = 1),
-                                       auc = scales::percent(yardstick::roc_auc_vec(resposta, p1),accuracy = 1)) %>%
+                                       rec = scales::percent(yardstick::recall_vec(resposta, class),accuracy = 1)) %>%
                       dplyr::arrange(dplyr::desc(acc),dplyr::desc(prc))
     )
   } else{

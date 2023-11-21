@@ -1,0 +1,31 @@
+- A base de dados já é uma transformada, explicar como transformou
+- Explicar o processo de criação do espectrograma
+- Ver se o problemanão é o microfone/normalizar
+- Introdução na metodologia discutindo sobre o porquê das variáveis de entrada e uma explicação sumarizada os modelos
+- Incluir os modelos no texto
+- Incluir imagens (e.g. espectrogramas) no texto
+- Focar em 1 artigo
+- Explicar todos os métodos utilizados para que o trabalho seja reprodutível 
+- Olhar MFCC como feature
+- Utilizar o spectro como variavel dos modelos tradicionais
+- Utilizar dia e noite como resposta
+
+
+Reduzir a taxa de amostragem de assis e santa barbara.
+1. Pega o som original, filtra com ffilter lowpass a 4khz   
+2. downsampling a 8.
+
+Normalizar a amplitude.
+
+Criar os modelos usando espectro médio e o MFCC médio
+
+PSD - welch - espectro medio
+
+
+Resultados preliminares:
+
+| rowid|modelo |acc |prc |rec |
+|-----:|:------|:---|:---|:---|
+|     1|xgb    |93% |93% |93% |
+|     2|rf     |92% |92% |92% |
+|     3|lr     |82% |83% |82% |
